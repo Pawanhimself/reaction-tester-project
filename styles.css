@@ -1,0 +1,8 @@
+#shape {
+    position: relative;
+}
+
+#text-block {
+    display: flex;
+    justify-content: center;
+}   
