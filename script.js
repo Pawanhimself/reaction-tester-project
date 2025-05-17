@@ -6,8 +6,11 @@ document.getElementById('shape').onclick = function(){
 
     divPosition();
     let endTime = new Date();
-    let timeTaken = ( endTime - startTime ) / 1000;
-    alert(timeTaken);
+    let timeTaken = endTime - startTime;
+    let formatedTime = formatTime(timeTaken);
+
+    alert(formatedTime);
+    location.reload();
 }
 
 //calling div position so when the page is loaded for the first time it style the div
@@ -33,3 +36,12 @@ function getRandomColorHex() {
     return '#' + Math.floor(Math.random()*16777215).toString(16);
 }
   
+function formatTime(milliseconds) {
+    let seconds = Math.floor((milliseconds / 1000) % 60);
+    let minutes = Math.floor((milliseconds / (1000 * 60)) % 60);
+  
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+  
+    return minutes + " minute " + seconds + " seconds";
+  }  
